@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>WebSocket Test</title>
+</head>
+<body>
+  <h1>🧪 WebSocket Client</h1>
+  <script>
+    const socket = new WebSocket("ws://localhost:6789");
+
+    socket.onopen = () => {
+      console.log("✅ Connected to server");
+      socket.send("Hello from browser!");
+    };
+
+    socket.onmessage = (event) => {
+      console.log("📨 Received:", event.data);
+    };
+
+    socket.onerror = (error) => {
+      console.error("❌ WebSocket Error:", error);
+    };
+  </script>
+</body>
+</html>
